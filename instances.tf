@@ -16,7 +16,7 @@ data "aws_ami" "ubuntu" {
 
 resource "aws_instance" "cks-master" {
   ami           = data.aws_ami.ubuntu.id
-  instance_type = "t3.micro"
+  instance_type = "t3.medium"
 
   key_name = "cis-prep"
   subnet_id                   = module.vpc.public_subnets[0]
@@ -31,7 +31,7 @@ resource "aws_instance" "cks-master" {
 
 resource "aws_instance" "cks-worker" {
   ami           = data.aws_ami.ubuntu.id
-  instance_type = "t3.micro"
+  instance_type = "t3.medium"
   
   count = 2
   key_name = "cis-prep"
