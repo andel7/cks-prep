@@ -40,7 +40,7 @@ resource "aws_instance" "cks-worker" {
   associate_public_ip_address = true
   user_data                   = templatefile("./worker.sh",{})
   tags = {
-    Name = "cks-master"
+    Name = "cks-worker_{count.index}"
   }
 }
 
